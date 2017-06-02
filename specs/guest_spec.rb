@@ -42,13 +42,12 @@ class TestGuest < MiniTest::Test
     assert_equal(1, @guest_2.drink_drink())
   end
 
-
   def test_guest_can_buy_drink
     @guest_1.buy_drink(@bar_1, "beer")
     assert_equal(55, @bar_1.money())
     assert_equal(95, @guest_1.wallet())
     assert_equal(6, @guest_1.drunk_level())
-    # assert_equal(49, @drinks[0][:stock])
+    assert_equal(49, @drinks[0][:stock])
   end
 
   # def test_drunk

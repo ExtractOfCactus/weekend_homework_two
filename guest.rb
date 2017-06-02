@@ -41,6 +41,7 @@ class Guest
   def buy_drink(bar, drink)
     payment_for_drink(bar, drink)
     drink_drink()
+    bar.reduce_stock(drink)
   end
 
   

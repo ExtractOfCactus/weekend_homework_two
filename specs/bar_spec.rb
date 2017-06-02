@@ -21,8 +21,12 @@ class TestBar < MiniTest::Test
     assert_equal(5, @bar_1.price_of_drink("beer"))
   end
 
-  def test_take_payment_for_drink
-    assert_equal(55, @bar_1.money()))
+  # def test_take_payment_for_drink
+  #   assert_equal(55, @bar_1.money())
+  # end
+
+  def test_drink_stock
+    assert_equal(19, @bar_1.reduce_stock("wine"))
   end
 
 end

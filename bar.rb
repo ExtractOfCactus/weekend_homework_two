@@ -12,4 +12,9 @@ class Bar
     beer[:price]
   end
 
+  def reduce_stock(option)
+    alcohol = @drinks.find {|drink| drink[:type] == option}
+    alcohol[:stock] -= 1
+  end
+
 end
