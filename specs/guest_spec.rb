@@ -28,4 +28,12 @@ class TestGuest < MiniTest::Test
     assert_equal(@song_3, @guest_3.fav_song)
   end
 
+  def test_guest_can_sing
+    assert_equal("BaaAAaaAAack, BaaAAaaAAack!", @guest_3.sing(@song_1))
+  end
+
+  def test_guest_can_sing_favourite_song
+    assert_equal("PUT ON A RED LIGHT! AWWWW YEAH!", @guest_3.sing(@song_3))
+  end
+
 end
