@@ -12,4 +12,6 @@ class Guest
     return song.lyrics()
   end
 
+  
+
 end

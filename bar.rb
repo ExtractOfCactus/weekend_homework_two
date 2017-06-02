@@ -1,8 +1,8 @@
 class Bar
-  attr_reader :alcohol, :money
+  attr_reader :drink, :money
 
-  def initialize(alcohol, money)
-    @alcohol = alcohol
+  def initialize(drink, money)
+    @drink = drink
     @money = money
   end
 
