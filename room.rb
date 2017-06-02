@@ -11,9 +11,11 @@ class Room
   end
 
   def check_in(guest)
-    if guest.wallet >= @charge
-      guest.wallet -= @charge
-      @guests << guest
+    unless @guests.length() >= 2
+      if guest.wallet >= @charge
+        guest.wallet -= @charge
+        @guests << guest
+      end
     end
   end
 

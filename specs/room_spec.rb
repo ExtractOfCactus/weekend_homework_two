@@ -30,8 +30,10 @@ class TestRoom < MiniTest::Test
 
   def test_check_in_guests_to_room
     @room_1.check_in(@guest_2)
+    @room_1.check_in(@guest_3)
     assert_equal(2, @room_1.guests().length())
     assert_equal(40, @guest_2.wallet())
+    assert_equal(50, @guest_3.wallet())
   end
 
   def test_check_out_guests_to_room
