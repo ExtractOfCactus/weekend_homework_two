@@ -8,11 +8,8 @@ class Guest
   end
 
   def sing(song)
-    if song.title() == fav_song.title()
-      return "#{song.lyrics().upcase()} AWWWW YEAH!" 
-    else
-      return song.lyrics()
-    end
+    return "#{song.lyrics().upcase()} AWWWW YEAH!" if song.title() == fav_song.title()
+    return song.lyrics()
   end
 
 end
