@@ -19,15 +19,15 @@ class TestGuest < MiniTest::Test
   end
 
   def test_guest_has_name
-    assert_equal("Rick", @guest_1.name)
+    assert_equal("Rick", @guest_1.name())
   end
 
   def test_guest_has_wallet
-    assert_equal(100, @guest_1.wallet)
+    assert_equal(100, @guest_1.wallet())
   end
 
   def test_guest_has_favourite_song
-    assert_equal(@song_3, @guest_3.fav_song)
+    assert_equal(@song_3, @guest_3.fav_song())
   end
 
   def test_guest_can_sing

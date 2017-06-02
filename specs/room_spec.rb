@@ -16,7 +16,7 @@ class TestRoom < MiniTest::Test
     @guest_3 = Guest.new("Summer", 50, @song_3)
     @songs = [@song_1, @song_2]
     @guests = [@guest_1]
-    @room_1 = Room.new("Party Room!",@guests, @songs) 
+    @room_1 = Room.new("Party Room!",@guests, @songs, 10) 
 
   end
 
@@ -31,6 +31,7 @@ class TestRoom < MiniTest::Test
   def test_check_in_guests_to_room
     @room_1.check_in(@guest_2)
     assert_equal(2, @room_1.guests().length())
+    assert_equal(40, @guest_2.wallet())
   end
 
   def test_check_out_guests_to_room

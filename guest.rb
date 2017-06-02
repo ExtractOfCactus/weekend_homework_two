@@ -1,5 +1,6 @@
 class Guest
-  attr_reader :name, :wallet, :fav_song
+  attr_reader :name, :fav_song
+  attr_accessor :wallet
 
   def initialize(name, wallet, fav_song)
     @name = name
@@ -12,6 +13,6 @@ class Guest
     return song.lyrics()
   end
 
-  
+
 
 end
