@@ -12,9 +12,9 @@ class TestGuest < MiniTest::Test
     @song_1 = Song.new("Back in Black", "AC/DC", "BaaAAaaAAack, BaaAAaaAAack! I'm back in black")
     @song_2 = Song.new("Sympathy for the Devil", "The Rolling Stones", "Pleased to meet you, hope you guessed my name")
     @song_3 = Song.new("Roxanne", "Sting and The Police", "Put on a red light!")
-    @guest_1 = Guest.new("Rick", 100, @song_1, 5)
+    @guest_1 = Guest.new("Rick", 100, @song_1, 0)
     @guest_2 = Guest.new("Morty", 50, @song_2, 0)
-    @guest_3 = Guest.new("Summer", 50, @song_3, 3)
+    @guest_3 = Guest.new("Summer", 50, @song_3, 0)
 
   end
 
@@ -46,7 +46,7 @@ class TestGuest < MiniTest::Test
     @guest_1.buy_drink(@bar_1, "beer")
     assert_equal(55, @bar_1.money())
     assert_equal(95, @guest_1.wallet())
-    assert_equal(6, @guest_1.drunk_level())
+    assert_equal(1, @guest_1.drunk_level())
     assert_equal(49, @drinks[0][:stock])
   end
 

@@ -13,16 +13,21 @@ class Guest
   end
 
   def sing_drunk(song)
-    if @drunk_level >= 4
+   
       word_arr = song.lyrics().split (' ')
       word_arr.shuffle!()
-      return"#{word_arr.join(" ")}....*hic*"
-    end
+      "#{word_arr.join(" ")}....*hic*"
+    
   end
 
   def sing(song)
-    return "#{song.lyrics().upcase()} AWWWW YEAH!" if song.title() == fav_song.title()
-    return song.lyrics()
+    if @drunk_level >= 4 
+      sing_drunk(song)
+    elsif song.title() == fav_song.title()
+      "#{song.lyrics().upcase()} AWWWW YEAH!"
+    else
+      return song.lyrics()
+    end
   end
 
   def drink_drink()
