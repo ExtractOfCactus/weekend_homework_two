@@ -15,6 +15,7 @@ class TestGuest < MiniTest::Test
     @guest_1 = Guest.new("Rick", 100, @song_1, 0)
     @guest_2 = Guest.new("Morty", 50, @song_2, 0)
     @guest_3 = Guest.new("Summer", 50, @song_3, 0)
+    @party = [@guest_1, @guest_2, @guest_3]
 
   end
 
@@ -31,11 +32,11 @@ class TestGuest < MiniTest::Test
   end
 
   def test_guest_can_sing
-    assert_equal("BaaAAaaAAack, BaaAAaaAAack! I'm back in black", @guest_3.sing(@song_1))
+    assert_equal("Summer: 'BaaAAaaAAack, BaaAAaaAAack! I'm back in black'", @guest_3.sing(@song_1))
   end
 
   def test_guest_can_sing_favourite_song
-    assert_equal("PUT ON A RED LIGHT! AWWWW YEAH!", @guest_3.sing(@song_3))
+    assert_equal("Summer: 'PUT ON A RED LIGHT! AWWWW YEAH!'", @guest_3.sing(@song_3))
   end
 
   def test_guest_gets_more_drunk

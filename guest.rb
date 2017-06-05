@@ -1,5 +1,6 @@
 require('pry')
 require('pry-byebug')
+require_relative('song')
 
 class Guest
   attr_reader :name, :fav_song, :drunk_level
@@ -16,17 +17,17 @@ class Guest
    
       word_arr = song.lyrics().split (' ')
       word_arr.shuffle!()
-      "#{word_arr.join(" ")}....*hic*"
+      "#{name}: '#{word_arr.join(" ")}....*hic*'"
     
   end
 
   def sing(song)
-    if @drunk_level >= 4 
+    if @drunk_level >= 3
       sing_drunk(song)
     elsif song.title() == fav_song.title()
-      "#{song.lyrics().upcase()} AWWWW YEAH!"
+      "#{name}: '#{song.lyrics().upcase()} AWWWW YEAH!'"
     else
-      return song.lyrics()
+      "#{name}: '#{song.lyrics()}'"
     end
   end
 
@@ -35,12 +36,17 @@ class Guest
   end
 
   def payment_for_drink(bar, drink)
+
     beer = bar.drinks.find do |alcohol| 
       alcohol[:type] == drink
     end
-    cost = beer[:price]
-    bar.money += cost
-    @wallet -= cost
+    if @wallet >= beer[:price]
+      cost = beer[:price]
+      bar.money += cost
+      @wallet -= cost
+    else
+      return nil
+    end
   end
 
   def buy_drink(bar, drink)
